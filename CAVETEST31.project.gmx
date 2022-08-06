@@ -7,6 +7,13 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sprMyChar</sprite>
+    <sprites name="Tiles">
+      <sprite>sprites\sprSolidTile</sprite>
+      <sprite>sprites\sprDLSlope</sprite>
+      <sprite>sprites\sprDRSlope</sprite>
+      <sprite>sprites\sprULSlope</sprite>
+      <sprite>sprites\sprURSlope</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
