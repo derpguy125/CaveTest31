@@ -8,13 +8,18 @@
   <sprites name="sprites">
     <sprite>sprites\sprMyChar</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\tilTest</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\objMyChar</object>
+    <object>objects\objTileRender</object>
+    <object>objects\objInitializer</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rmInit</room>
+    <room>rooms\rmGame</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
