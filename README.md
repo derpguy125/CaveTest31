@@ -6,7 +6,7 @@ Yet another test for me making an engine for Cave Story style games, using my ow
 # My Goal:
 Make an actual engine I can use for fangames, including:
 
-- Tile-based collision
+- Accuracy to the original game (movement wise)
 - TSC-like events and shit
 - Ease of use
 
