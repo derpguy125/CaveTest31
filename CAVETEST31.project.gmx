@@ -20,6 +20,13 @@
   <objects name="objects">
     <object>objects\objMyChar</object>
     <object>objects\objInitializer</object>
+    <objects name="Tiles">
+      <object>objects\objSolid</object>
+      <object>objects\objDLSlope</object>
+      <object>objects\objDRSlope</object>
+      <object>objects\objULSlope</object>
+      <object>objects\objURSlope</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
