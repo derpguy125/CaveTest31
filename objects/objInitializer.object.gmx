@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>window_set_size(960,720);
+            <string>scale = 3;
+
+window_set_size(WINDOW_WIDTH*scale,WINDOW_HEIGHT*scale);
+window_set_position((display_get_width() / 2)-((WINDOW_WIDTH*scale)/2),(display_get_height() / 2)-((WINDOW_HEIGHT*scale)/2));
 
 room_goto(rmGame);
 </string>
