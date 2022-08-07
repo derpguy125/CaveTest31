@@ -15,3 +15,8 @@ Make an actual engine I can use for fangames, including:
 # how much ya wanna bet ill never finish it
 
 lol
+
+----
+
+# Other ideas.
+- Full remake of the original cave story?! Lol? :)
