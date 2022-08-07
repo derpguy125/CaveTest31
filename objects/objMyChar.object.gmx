@@ -3,8 +3,8 @@
   <spriteName>sprPlayerMove</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>0</persistent>
+  <depth>-99</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>sprPlayerMask</maskName>
   <events>
@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hsp = 0;
+            <string>/// init vars (like movement)
+hsp = 0;
 vsp = 0;
 
 acc = ($200/6)  / $200;
@@ -45,18 +46,172 @@ ground = true;
 varJmp = true;
 
 jmp =  $500 / $200;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// init other vars
 
 canShoot = true;
 canMove = true;
 interact = false;
 
 prevSprite = sprite_index;
+
+camTargetX = 0;
+camTargetY = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Camera handling
+
+if !global.gamePaused {
+
+    camTargetX = clamp(camTargetX + dir, -($8000/$200), ($8000/$200));
+    
+    {
+        if camTargetY &gt; 1 then camTargetY -= 1;
+        if camTargetY &lt; 1 then camTargetY += 1;
+    }
+    
+    global.targetX = round(x) + camTargetX;
+    global.targetY = round(y) + camTargetY
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// disable objects out of view
+
+instance_deactivate_all(true);
+
+instance_activate_region(view_xview[0] - 80, view_yview[0] - 80, view_wview[0] + 80, view_hview[0] + 80, true);
+
+instance_activate_object(objSolid);
+instance_activate_object(objGame);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Movement (for some reason accurate to CS)
+
+if !global.gamePaused &amp;&amp; canMove {
+    
+    
+    // this is normal :)
+    var moveKeys = -keyboard_check(vk_left) + keyboard_check(vk_right)
+    
+    // Moving Horizontally
+    if moveKeys = -1 {
+        if hsp &gt; -msp then hsp -= acc;
+        dir = -1;
+        if interact then interact = 0;
+    } else if moveKeys = 1 {
+        if hsp &lt; msp then hsp += acc;
+        dir = 1;
+        if interact then interact = 0;
+    } else {
+        if hsp &gt; dcc then hsp -= dcc;
+        else if hsp &lt; -dcc then hsp += dcc;
+        else hsp = 0;
+    }
+    
+    // Jumping
+    if keyboard_check_pressed(ord("Z")) &amp;&amp; ground {
+        vsp = -jmp;
+        if interact then interact = 0;
+    }
+    
+    // Gravity
+    if vsp &lt; 0 &amp;&amp; keyboard_check(ord("Z")) {
+        vsp += grv2;
+    } else vsp += grv1;
+    
+    
+    // Clamping
+    if hsp &lt; -top then hsp = -top;
+    if vsp &lt; -top then vsp = -top;
+    
+    if hsp &gt;  top then hsp =  top;
+    if vsp &gt;  top then vsp =  top;
+    
+   
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -177,70 +332,6 @@ if !global.gamePaused {
         sprite_index = sprPlayerInteract;
         image_speed = 0.2;
     }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Movement (for some reason accurate to CS)
-
-if !global.gamePaused &amp;&amp; canMove {
-    
-    
-    // this is normal :)
-    var moveKeys = -keyboard_check(vk_left) + keyboard_check(vk_right)
-    
-    // Moving Horizontally
-    if moveKeys = -1 {
-        if hsp &gt; -msp then hsp -= acc;
-        dir = -1;
-        if interact then interact = 0;
-    } else if moveKeys = 1 {
-        if hsp &lt; msp then hsp += acc;
-        dir = 1;
-        if interact then interact = 0;
-    } else {
-        if hsp &gt; dcc then hsp -= dcc;
-        else if hsp &lt; -dcc then hsp += dcc;
-        else hsp = 0;
-    }
-    
-    // Jumping
-    if keyboard_check_pressed(ord("Z")) &amp;&amp; ground {
-        vsp = -jmp;
-        if interact then interact = 0;
-    }
-    
-    // Gravity
-    if vsp &lt; 0 &amp;&amp; keyboard_check(ord("Z")) {
-        vsp += grv2;
-    } else vsp += grv1;
-    
-    
-    // Clamping
-    if hsp &lt; -top then hsp = -top;
-    if vsp &lt; -top then vsp = -top;
-    
-    if hsp &gt;  top then hsp =  top;
-    if vsp &gt;  top then vsp =  top;
-    
-   
 }
 </string>
           </argument>

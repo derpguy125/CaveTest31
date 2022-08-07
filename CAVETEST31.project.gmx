@@ -21,12 +21,17 @@
       <sprite>sprites\sprULSlope</sprite>
       <sprite>sprites\sprURSlope</sprite>
     </sprites>
+    <sprites name="Other">
+      <sprite>sprites\sprPauseOptions</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\objMyChar</object>
-    <object>objects\objInitializer</object>
+    <objects name="Controllers">
+      <object>objects\objGame</object>
+      <object>objects\objMyChar</object>
+    </objects>
     <objects name="Tiles">
       <object>objects\objSolid</object>
       <object>objects\objDLSlope</object>
