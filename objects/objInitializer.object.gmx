@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>scale = 3;
 
+global.gamePaused = false;
+
 window_set_size(WINDOW_WIDTH*scale,WINDOW_HEIGHT*scale);
 window_set_position((display_get_width() / 2)-((WINDOW_WIDTH*scale)/2),(display_get_height() / 2)-((WINDOW_HEIGHT*scale)/2));
 

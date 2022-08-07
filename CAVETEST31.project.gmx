@@ -6,7 +6,14 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprMyChar</sprite>
+    <sprites name="Player">
+      <sprite>sprites\sprPlayerMask</sprite>
+      <sprite>sprites\sprPlayerMove</sprite>
+      <sprite>sprites\sprPlayerUpMove</sprite>
+      <sprite>sprites\sprPlayerDown</sprite>
+      <sprite>sprites\sprPlayerAtlas</sprite>
+      <sprite>sprites\sprPlayerInteract</sprite>
+    </sprites>
     <sprites name="Tiles">
       <sprite>sprites\sprSolidTile</sprite>
       <sprite>sprites\sprDLSlope</sprite>

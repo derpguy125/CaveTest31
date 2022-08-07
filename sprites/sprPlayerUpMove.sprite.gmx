@@ -20,16 +20,9 @@
   <width>16</width>
   <height>16</height>
   <frames>
-    <frame index="0">images\sprMyChar_0.png</frame>
-    <frame index="1">images\sprMyChar_1.png</frame>
-    <frame index="2">images\sprMyChar_2.png</frame>
-    <frame index="3">images\sprMyChar_3.png</frame>
-    <frame index="4">images\sprMyChar_4.png</frame>
-    <frame index="5">images\sprMyChar_5.png</frame>
-    <frame index="6">images\sprMyChar_6.png</frame>
-    <frame index="7">images\sprMyChar_7.png</frame>
-    <frame index="8">images\sprMyChar_8.png</frame>
-    <frame index="9">images\sprMyChar_9.png</frame>
-    <frame index="10">images\sprMyChar_10.png</frame>
+    <frame index="0">images\sprPlayerUpMove_0.png</frame>
+    <frame index="1">images\sprPlayerUpMove_1.png</frame>
+    <frame index="2">images\sprPlayerUpMove_2.png</frame>
+    <frame index="3">images\sprPlayerUpMove_3.png</frame>
   </frames>
 </sprite>
