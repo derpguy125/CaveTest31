@@ -16,10 +16,14 @@
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\sprSolidTile</sprite>
-      <sprite>sprites\sprDLSlope</sprite>
-      <sprite>sprites\sprDRSlope</sprite>
-      <sprite>sprites\sprULSlope</sprite>
-      <sprite>sprites\sprURSlope</sprite>
+      <sprite>sprites\sprDLBSlope</sprite>
+      <sprite>sprites\sprDRBSlope</sprite>
+      <sprite>sprites\sprULBSlope</sprite>
+      <sprite>sprites\sprURBSlope</sprite>
+      <sprite>sprites\sprDLTSlope</sprite>
+      <sprite>sprites\sprDRTSlope</sprite>
+      <sprite>sprites\sprULTSlope</sprite>
+      <sprite>sprites\sprURTSlope</sprite>
     </sprites>
     <sprites name="Other">
       <sprite>sprites\sprPauseOptions</sprite>
@@ -34,10 +38,14 @@
     </objects>
     <objects name="Tiles">
       <object>objects\objSolid</object>
-      <object>objects\objDLSlope</object>
-      <object>objects\objDRSlope</object>
-      <object>objects\objULSlope</object>
-      <object>objects\objURSlope</object>
+      <object>objects\objDLBSlope</object>
+      <object>objects\objDRBSlope</object>
+      <object>objects\objULBSlope</object>
+      <object>objects\objURBSlope</object>
+      <object>objects\objDLTSlope</object>
+      <object>objects\objDRTSlope</object>
+      <object>objects\objULTSlope</object>
+      <object>objects\objURTSlope</object>
     </objects>
   </objects>
   <rooms name="rooms">
