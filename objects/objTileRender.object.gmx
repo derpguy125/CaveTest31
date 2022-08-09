@@ -25,16 +25,56 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.tileset = tilTest;
+            <string>global.currentMap = "Test";
+global.stageTile = "Test";
 
-global.mw = 32;
-global.mh = 32;
+stage = file_bin_open(global.currentMap+".stg",0);
+tileset = background_add(global.stageTile+".png",0,0);
 
-tilW = 16;
-tilH = 16;
+file_bin_seek(stage,$04);
+mapW = file_bin_read_byte(stage);
+file_bin_seek(stage,$06);
+mapH = file_bin_read_byte(stage);
 
-viewW = 24;
-viewH = 17;
+file_bin_seek(stage,$08);
+
+for (j = 0; j &lt; mapH; j ++) {
+    for (i = 0; i &lt; mapW; i ++) {
+        map[i,j] = file_bin_read_byte(stage);
+        file_bin_seek(stage,(i*j));
+    }
+}
+
+file_bin_close(stage);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(0,0,string(mapW));
+
+for (j = 0; j &lt; mapH; j ++) {
+    for (i = 0; i &lt; mapW; i ++) {
+        draw_background_part(tileset, (map[i,j]), (map[i,j] div 16)*16, 16, 16, i*16, j*mapW);
+    }
+}
 </string>
           </argument>
         </arguments>
