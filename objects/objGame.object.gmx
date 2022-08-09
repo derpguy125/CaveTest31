@@ -34,7 +34,7 @@ scale = 3;
 // game initialization
 global.roomStart = rmGame;
 global.beginX = 32;
-global.beginY = 128;
+global.beginY = 48;
 
 // camera stuff
 global.targetX = x;
