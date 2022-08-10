@@ -32,7 +32,7 @@ scale = 3;
 // create managers
 
 // game initialization
-global.roomStart = rmGame;
+global.roomStart = rmTestMap;
 global.beginX = 32;
 global.beginY = 48;
 
@@ -55,7 +55,7 @@ window_set_position((display_get_width() / 2)-((WINDOW_WIDTH*scale)/2),(display_
 instance_create(global.beginX,global.beginY,objMyChar);
 
 
-room_goto(rmGame);
+room_goto(global.roomStart);
 </string>
           </argument>
         </arguments>

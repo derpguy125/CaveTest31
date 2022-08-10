@@ -53,7 +53,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
-    <room>rooms\rmGame</room>
+    <room>rooms\rmTestMap</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
